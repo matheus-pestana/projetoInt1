@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #1a1a1a;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: #1C3788;
+    color: white;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile {
+    text-align: center;
+}
+
+.avatar {
+    background-color: #ccc;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+}
+
+.menu-item svg {
+    transition: fill 0.3s, color 0.3s;
+}
+
+.menu-item.active {
+    color: #1C3788;
+}
+
+.menu-item.active {
+    background-color: white;
+    color: #1d3060;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.menu-item.sair {
+    margin-top: 40px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content h1 {
+    color: #1d3060;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    height: 10vh;
+    background-color: #1d3060;
+}
+
+.title h1 {
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.profiles {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10vh;
+    padding: 20px;
+}
+
+.profile-card {
+    width: 50%;
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.foto {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.info {
+    flex: 1;
+}
+
+.info h2 {
+    color: #1d3060;
+    margin-bottom: 10px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.links img {
+    width: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footer {
+    background-color: #1d3060;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-icons img {
+    width: 30px;
+    margin: 0 8px;
+    vertical-align: middle;
+}
