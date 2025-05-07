@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: #1a1a1a;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: #1C3788;
+    color: white;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile {
+    text-align: center;
+}
+
+.avatar {
+    background-color: #ccc;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+.menu {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 20px;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.menu-item img {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s;
+}
+
+.menu-item.active {
+    background-color: white;
+    color: #002366
+}
+
+.menu-item.sair {
+    border: solid 1px white;
+    margin-top: 40px;
+}
+
+.main-content h1 {
+    color: #1d3060;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-header {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+    color: #1C3788;
+}
+
+.dashboard-header p {
+    font-size: 1.2rem;
+    color: #1C3788;
+}
+
+.charts-container {
+    width: 80%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 50px;
+    max-height: 700px;
+}
+
+.material {
+    padding: 40px;
+    box-shadow: 11px 11px 13px -6px rgba(0,0,0,1);
+    grid-column: span 2 / span 2;
+    grid-row: span 4 / span 4;
+}
+
+.data {
+    padding: 40px;
+    box-shadow: 11px 11px 13px -6px rgba(0,0,0,1);
+    grid-column: span 2 / span 2;
+    grid-row: span 4 / span 4;
+    grid-column-start: 1;
+    grid-row-start: 5;
+}
+
+.tamanho {
+    padding: 40px;  
+    box-shadow: 11px 11px 13px -6px rgba(0,0,0,1);
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 1;
+}
+
+.cores {
+    padding: 40px;
+    box-shadow: 11px 11px 13px -6px rgba(0,0,0,1);
+    grid-column: span 3 / span 3;
+    grid-row: span 6 / span 6;
+    grid-column-start: 3;
+    grid-row-start: 3;
+}
+
+
+.chart-box {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.chart-box h2 {
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.chart-box canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 200px;
+    /* Ajuste a altura máxima do canvas */
+}
+
+.footer {
+    background-color: #1d3060;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-icons img {
+    width: 30px;
+    margin: 0 8px;
+    vertical-align: middle;
+}

@@ -1,11 +1,43 @@
+<?php
+
+session_start();
+include 'conexao.php';
+
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: index.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem Somos</title>
+    <title>Quem Somos?</title>
     <link rel="stylesheet" href="./assets/css/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmarLogout(event) {
+            event.preventDefault(); // Impede o comportamento padrão do link
+
+            Swal.fire({
+                title: 'Deseja realmente sair?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, sair!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "logout.php"; // Redireciona para a página de logout
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -17,24 +49,26 @@
                 <p>emailimaginario@gmail.com</p>
             </div>
             <nav class="menu">
-                <a href="profile.php" class="menu-item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="./assets/icons/lapis.svg" />
-                    </svg>
-                    Perfil
-                </a>
-                <a href="#" class="menu-item active">
-                    <img src="./assets/icons/casa.png" alt="Página Inicial">
-                    Página Inicial
-                </a>
-                <a href="graphs.php" class="menu-item">
-                    <img src="./assets/icons/grafico.png" alt="Gráficos">
-                    Gráficos
-                </a>
-                <a href="logout.php" class="menu-item sair">
-                    <img src="./assets/icons/sair.png" alt="Sair">
-                    Sair
-                </a>
+                <div class="menu-items">
+                    <a href="perfil.php" class="menu-item">
+                        <img src="./assets/icons/lapis.png" alt="Perfil">
+                        Perfil
+                    </a>
+                    <a href="#" class="menu-item active">
+                        <img src="./assets/icons/casa_azul.png" alt="Página Inicial">
+                        Página Inicial
+                    </a>
+                    <a href="graficos.php" class="menu-item">
+                        <img src="./assets/icons/grafico.png" alt="Gráficos">
+                        Gráficos
+                    </a>
+                </div>
+                <div>
+                    <a href="logout.php" class="menu-item sair" onclick="confirmarLogout(event)">
+                        <img src="./assets/icons/sair.png" alt="Sair">
+                        Sair
+                    </a>
+                </div>
             </nav>
         </aside>
 

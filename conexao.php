@@ -2,7 +2,7 @@
 $host = 'localhost';
 $user = 'root'; // ou outro usuário
 $pass = ''; // senha do seu MySQL
-$db = 'dashboard_teste';
+$db = 'db_prod';
 
 $conn = new mysqli($host, $user, $pass, $db);
 
