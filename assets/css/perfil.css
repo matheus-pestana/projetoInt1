@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-height: 100vh;
 }
 
 html,
@@ -40,6 +41,12 @@ body {
     height: 80px;
     border-radius: 50%;
     margin: 0 auto 10px;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 .menu {
@@ -125,23 +132,10 @@ body {
     align-items: center;
 }
 
-.editar-icone {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: white;
-    width: 28px;
-    height: 28px;
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc;
-}
-
-.editar-icone img {
-    width: 12px;
-    height: 12px;
 }
 
 .formulario {

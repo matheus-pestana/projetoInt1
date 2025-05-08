@@ -8,6 +8,45 @@ if (!isset($_SESSION['id_usuario'])) {
     exit();
 }
 
+$nomeCompleto = "";
+$emailUsuario = "";
+$fotoUsuario = "./assets/img/user.png"; // Imagem padrão
+
+if (isset($_SESSION['id_usuario'])) {
+    $idUsuario = $_SESSION['id_usuario'];
+
+    $sql = "SELECT nome_completo, email, foto_usuario, tipo_foto FROM tb_usuario WHERE id_usuario = ?";
+    $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        error_log("Erro ao preparar a query de seleção: " . $conn->error);
+        // Tratar o erro adequadamente (exibir mensagem, redirecionar, etc.)
+    } else {
+        $stmt->bind_param("i", $idUsuario);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 1) {
+            $usuario = $result->fetch_assoc();
+            $nomeCompleto = $usuario['nome_completo'];
+            $emailUsuario = $usuario['email'];
+            // Se a foto estiver salva como BLOB, exibe diretamente
+            if (isset($usuario['foto_usuario']) && !empty($usuario['foto_usuario']) && isset($usuario['tipo_foto'])) {
+                $fotoBase64 = base64_encode($usuario['foto_usuario']);
+                $fotoUsuario = 'data:' . $usuario['tipo_foto'] . ';base64,' . $fotoBase64;
+            }
+        } else {
+            $nomeCompleto = "Usuário Desconhecido";
+            $emailUsuario = "";
+        }
+
+        $stmt->close();
+    }
+    $conn->close();
+} else {
+    $nomeCompleto = "Não Logado";
+    $emailUsuario = "";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +57,7 @@ if (!isset($_SESSION['id_usuario'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quem Somos?</title>
     <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/home_responsivo.css">
     <link rel="icon" href="./assets/icons/Logo.png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
@@ -45,9 +85,11 @@ if (!isset($_SESSION['id_usuario'])) {
     <div class="container">
         <aside class="sidebar">
             <div class="profile">
-                <div class="avatar"></div>
-                <h3>VINÍCIUS CARDOSO</h3>
-                <p>emailimaginario@gmail.com</p>
+                <div class="avatar">
+                    <img src="<?php echo $fotoUsuario; ?>" alt="Foto de Perfil">
+                </div>
+                <h3><?php echo $nomeCompleto; ?></h3>
+                <p><?php echo $emailUsuario; ?></p>
             </div>
             <nav class="menu">
                 <div class="menu-items">
@@ -55,12 +97,14 @@ if (!isset($_SESSION['id_usuario'])) {
                         <img src="./assets/icons/lapis.png" alt="Perfil">
                         Perfil
                     </a>
-                    <a href="#" class="menu-item active">
-                        <img src="./assets/icons/casa_azul.png" alt="Página Inicial">
+                    <a href="home.php" class="menu-item <?php if (basename($_SERVER['PHP_SELF']) == 'home.php') echo 'active'; ?>">
+                        <img src="./assets/icons/casa<?php if (basename($_SERVER['PHP_SELF']) == 'home.php') echo '_azul';
+                                                        else echo ''; ?>.png" alt="Página Inicial">
                         Página Inicial
                     </a>
-                    <a href="graficos.php" class="menu-item">
-                        <img src="./assets/icons/grafico.png" alt="Gráficos">
+                    <a href="graficos.php" class="menu-item <?php if (basename($_SERVER['PHP_SELF']) == 'graficos.php') echo 'active'; ?>">
+                        <img src="./assets/icons/grafico<?php if (basename($_SERVER['PHP_SELF']) == 'graficos.php') echo '_azul';
+                                                        else echo ''; ?>.png" alt="Gráficos">
                         Gráficos
                     </a>
                 </div>
@@ -77,6 +121,8 @@ if (!isset($_SESSION['id_usuario'])) {
             <div class="title">
                 <h1>QUEM SOMOS?</h1>
             </div>
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()">☰</button>
+            <button class="close-btn" id="closeBtn" onclick="toggleMenu()">✖</button>
             <div class="profiles">
                 <section class="profile-card">
                     <img src="./assets/img/matheus.png" alt="Matheus Arcangelo" class="foto">
@@ -131,6 +177,8 @@ if (!isset($_SESSION['id_usuario'])) {
             </footer>
         </main>
     </div>
+
+    <script src="./assets/js/hamburguer.js"></script>
 
 </body>
 
