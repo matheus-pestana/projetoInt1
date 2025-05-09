@@ -2,12 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    max-height: 100vh;
 }
 
 html,
 body {
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     padding: 0;
 }
@@ -19,7 +19,6 @@ body {
 
 .container {
     display: flex;
-    min-height: 100vh;
 }
 
 .sidebar {
@@ -50,10 +49,8 @@ body {
 }
 
 .menu {
-    height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 30px;
     padding: 20px;
 }
@@ -126,7 +123,7 @@ body {
 
 .charts-container {
     width: 70%;
-    height: 70%;
+    max-height: 70%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(8, 1fr);
@@ -174,14 +171,14 @@ body {
 }
 
 .material {
-    padding: 40px;
+    padding: 30px;
     box-shadow: 9px 9px 9px -4px rgba(100,100,100,1);
     grid-column: span 2 / span 2;
     grid-row: span 4 / span 4;
 }
 
 .data {
-    padding: 40px;
+    padding: 30px;
     box-shadow: 9px 9px 9px -4px rgba(100,100,100,1);
     grid-column: span 2 / span 2;
     grid-row: span 4 / span 4;
@@ -190,7 +187,7 @@ body {
 }
 
 .tamanho {
-    padding: 40px;
+    padding: 30px;
     box-shadow: 9px 9px 9px -4px rgba(100,100,100,1);
     grid-column: span 3 / span 3;
     grid-row: span 2 / span 2;
@@ -199,7 +196,7 @@ body {
 }
 
 .cores {
-    padding: 40px;
+    padding: 30px;
     box-shadow: 9px 9px 9px -4px rgba(100,100,100,1);
     grid-column: span 3 / span 3;
     grid-row: span 6 / span 6;
@@ -230,7 +227,6 @@ body {
     width: 100% !important;
     height: auto !important;
     max-height: 200px;
-    /* Ajuste a altura máxima do canvas */
 }
 
 .footer {

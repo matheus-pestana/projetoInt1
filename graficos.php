@@ -42,11 +42,12 @@ if (isset($_SESSION['id_usuario'])) {
     <title>Gráficos</title>
     <link rel="stylesheet" href="./assets/css/graficos.css">
     <link rel="stylesheet" href="./assets/css/graficos_responsivo.css">
+    <link rel="icon" href="./assets/icons/Logo.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function confirmarLogout(event) {
-            event.preventDefault(); // Impede o comportamento padrão do link
+            event.preventDefault();
 
             Swal.fire({
                 title: 'Deseja realmente sair?',
@@ -81,14 +82,20 @@ if (isset($_SESSION['id_usuario'])) {
                         <img src="./assets/icons/lapis.png" alt="Perfil">
                         Perfil
                     </a>
-                    <a href="home.php" class="menu-item <?php if (basename($_SERVER['PHP_SELF']) == 'home.php') echo 'active'; ?>">
-                        <img src="./assets/icons/casa<?php if (basename($_SERVER['PHP_SELF']) == 'home.php') echo '_azul';
-                                                        else echo ''; ?>.png" alt="Página Inicial">
+                    <a href="home.php" class="menu-item <?php if (basename($_SERVER['PHP_SELF']) == 'home.php')
+                        echo 'active'; ?>">
+                        <img src="./assets/icons/casa<?php if (basename($_SERVER['PHP_SELF']) == 'home.php')
+                            echo '_azul';
+                        else
+                            echo ''; ?>.png" alt="Página Inicial">
                         Página Inicial
                     </a>
-                    <a href="graficos.php" class="menu-item <?php if (basename($_SERVER['PHP_SELF']) == 'graficos.php') echo 'active'; ?>">
-                        <img src="./assets/icons/grafico<?php if (basename($_SERVER['PHP_SELF']) == 'graficos.php') echo '_azul';
-                                                        else echo ''; ?>.png" alt="Gráficos">
+                    <a href="graficos.php" class="menu-item <?php if (basename($_SERVER['PHP_SELF']) == 'graficos.php')
+                        echo 'active'; ?>">
+                        <img src="./assets/icons/grafico<?php if (basename($_SERVER['PHP_SELF']) == 'graficos.php')
+                            echo '_azul';
+                        else
+                            echo ''; ?>.png" alt="Gráficos">
                         Gráficos
                     </a>
                 </div>
@@ -102,9 +109,11 @@ if (isset($_SESSION['id_usuario'])) {
         </aside>
 
         <main class="main-content">
-        <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()">☰</button>
-        <button class="close-btn" id="closeBtn" onclick="toggleMenu()">✖</button>
             <div class="dashboard-header">
+                <div>
+                    <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()">☰</button>
+                    <button class="close-btn" id="closeBtn" onclick="toggleMenu()">✖</button>
+                </div>
                 <h1>GRÁFICOS</h1>
                 <p>Total de peças: <span id="total-pecas"></span></p>
             </div>
@@ -157,7 +166,7 @@ if (isset($_SESSION['id_usuario'])) {
         let tamanhoChart;
         let coresChart;
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             carregarDadosGraficos();
         });
 

@@ -8,15 +8,16 @@
     font-size: 30px;
     cursor: pointer;
     z-index: 1001;
-}
-
-.close-btn {
-    display: none;
+    color: white;
 }
 
 @media only screen and (max-width: 846px) {
 
-    .hamburger, .close-btn {
+    .inputs input {
+        width: 100%;
+    }
+
+    .hamburger {
         display: block;
         position: fixed;
         top: 20px;
@@ -41,6 +42,10 @@
 
     .sidebar.active {
         left: 0;
+    }
+
+    .close-btn {
+        display: none;
     }
 
 }

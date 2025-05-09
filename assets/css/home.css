@@ -51,10 +51,8 @@ body {
 }
 
 .menu {
-    height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 30px;
     padding: 20px;
 }
@@ -102,7 +100,6 @@ body {
 .main-content h1 {
     color: #1d3060;
     text-align: center;
-    margin-bottom: 40px;
 }
 
 .title {

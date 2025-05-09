@@ -157,6 +157,7 @@ if (isset($_SESSION['id_usuario'])) {
     <title>Perfil</title>
     <link rel="stylesheet" href="./assets/css/perfil.css">
     <link rel="stylesheet" href="./assets/css/perfil_responsivo.css">
+    <link rel="icon" href="./assets/icons/Logo.png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function confirmarLogout(event) {

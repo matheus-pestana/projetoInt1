@@ -50,10 +50,8 @@ body {
 }
 
 .menu {
-    height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 30px;
     padding: 20px;
 }
@@ -97,7 +95,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 .main-content h1 {

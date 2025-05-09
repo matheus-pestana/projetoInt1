@@ -19,7 +19,6 @@ if (isset($_SESSION['id_usuario'])) {
     $stmt = $conn->prepare($sql);
     if (!$stmt) {
         error_log("Erro ao preparar a query de seleção: " . $conn->error);
-        // Tratar o erro adequadamente (exibir mensagem, redirecionar, etc.)
     } else {
         $stmt->bind_param("i", $idUsuario);
         $stmt->execute();
@@ -29,7 +28,6 @@ if (isset($_SESSION['id_usuario'])) {
             $usuario = $result->fetch_assoc();
             $nomeCompleto = $usuario['nome_completo'];
             $emailUsuario = $usuario['email'];
-            // Se a foto estiver salva como BLOB, exibe diretamente
             if (isset($usuario['foto_usuario']) && !empty($usuario['foto_usuario']) && isset($usuario['tipo_foto'])) {
                 $fotoBase64 = base64_encode($usuario['foto_usuario']);
                 $fotoUsuario = 'data:' . $usuario['tipo_foto'] . ';base64,' . $fotoBase64;
